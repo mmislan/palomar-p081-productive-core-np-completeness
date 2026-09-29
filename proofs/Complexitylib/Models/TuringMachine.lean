@@ -684,7 +684,7 @@ def trace (tm : NTM n) :
           input := c.input.move inDir
           work := fun i => (c.work i).writeAndMove (workWrites i) (workDirs i)
           output := c.output.writeAndMove outWrite outDir }
-      tm.trace T (fun i => choices ⟨i.val + 1, by omega⟩) c'
+      tm.trace T (fun i => choices ⟨i.val + 1, Nat.succ_lt_succ i.isLt⟩) c'
 
 /-- Initial configuration: input on the input tape, all tapes start with `▷`. -/
 abbrev initCfg (tm : NTM n) (x : List Bool) : Cfg n tm.Q :=
