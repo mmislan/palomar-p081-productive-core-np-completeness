@@ -53,9 +53,9 @@ theorem accepted_iff_linkage (φ : CNF) :
     refine ⟨p,q,⟨pc,qc,pn,qn,?_,ps,pt,qs,qt⟩⟩
     exact List.disjoint_left.mpr (fun x hx hy => Set.disjoint_left.mp hd (pm x hx) (qm x hy))
 
-noncomputable def source (φ : CNF) := by
-  classical
-  exact DirectedLinkageSource.MarkedGraph.graphSource (adjacency φ) (terminals φ)
+noncomputable def source (φ : CNF) :=
+  DirectedLinkageSource.MarkedGraph.graphSource
+    (X := Vertex φ) (adjacency φ) (terminals φ)
 
 /-- The actual literal source has a PAC exactly when the pinned formula is satisfiable.
 This is semantic correctness, not a polynomial execution theorem. -/

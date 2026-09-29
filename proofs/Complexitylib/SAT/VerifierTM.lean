@@ -2600,7 +2600,8 @@ theorem satEvalSemBits_eq_decode_eval (α z : List Bool) :
       simp
       have h := satEvalSemRun_correct α toks (.boundary true false true) [] [] []
         ⟨rfl, by simp [CNF.eval], by simp [Clause.eval], by simp⟩
-      simpa [parseEvalResult] using h
+      cases hparse : parseTokensAux toks [] [] [] <;>
+        simpa only [parseEvalResult, hparse] using h
 
 /-- Pure semantic model of the paired SAT verifier: unpair `w` into `(z, α)`,
 check the witness-length bound `|α| ≤ |z| + 1`, and evaluate the encoded CNF
