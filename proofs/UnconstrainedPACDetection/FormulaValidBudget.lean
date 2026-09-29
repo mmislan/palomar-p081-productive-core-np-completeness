@@ -13,7 +13,7 @@ attribute [local irreducible] FormulaPolynomialBudget.Bounded FormulaWiring.leve
   FormulaEntityHeader.value FormulaHeaders.value SAT.CNF.encode
 
 open Lean Meta Elab Tactic in
-private partial def solveBudget (g : MVarId) : TacticM Unit := g.withContext do
+private meta partial def solveBudget (g : MVarId) : TacticM Unit := g.withContext do
   let target ← instantiateMVars (← g.getType)
   unless target.isAppOf ``FormulaPolynomialBudget.Bounded do
     throwError "Expected a polynomial budget goal: {target}"
