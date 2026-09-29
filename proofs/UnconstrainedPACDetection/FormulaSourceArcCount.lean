@@ -8,7 +8,7 @@ public import proofs.UnconstrainedPACDetection.FormulaPACEncoding
 namespace UnconstrainedPACDetection.FormulaSourceArcCount
 open Complexity.SAT FormulaWiring DirectedLinkageSource
 
-private noncomputable def physicalArcEquiv {X : Type*}
+noncomputable def physicalArcEquiv {X : Type*}
     (A : PhysicalVertex X → PhysicalVertex X → Prop) :
     FromAdjacency.Arcs A ≃ {e : PhysicalVertex X × PhysicalVertex X //
       DirectedPathNormalization.pruned A (.source false) (.source true)
@@ -38,26 +38,26 @@ private noncomputable def physicalArcEquiv {X : Type*}
           | sink c => exact ⟨⟨(.inr z,.inl c),ha,hne⟩,rfl⟩
           | internal w => exact ⟨⟨(.inr z,.inr w),ha,hne⟩,rfl⟩)
 
-private noncomputable def decoded (φ : CNF) :
+noncomputable def decoded (φ : CNF) :
     PhysicalVertex (MarkedGraph.Internal (FormulaIndexedGraph.terminals φ)) ≃ Vertex φ :=
   (MarkedGraph.vertexEquiv (FormulaIndexedGraph.terminals φ)).trans
     (FormulaIndexedGraph.vertexEquiv φ)
 
-private theorem decoded_source (φ : CNF) (b : Bool) :
+theorem decoded_source (φ : CNF) (b : Bool) :
     decoded φ (.source b) = if b then sourceQ φ else sourceP φ := by
   change FormulaIndexedGraph.vertexEquiv φ ((FormulaIndexedGraph.vertexEquiv φ).symm
     (PACFormulaReduction.terminal φ (.inl b))) = _
   rw [Equiv.apply_symm_apply]
   cases b <;> rfl
 
-private theorem decoded_sink (φ : CNF) (b : Bool) :
+theorem decoded_sink (φ : CNF) (b : Bool) :
     decoded φ (.sink b) = if b then sinkQ φ else sinkP φ := by
   change FormulaIndexedGraph.vertexEquiv φ ((FormulaIndexedGraph.vertexEquiv φ).symm
     (PACFormulaReduction.terminal φ (.inr b))) = _
   rw [Equiv.apply_symm_apply]
   cases b <;> rfl
 
-private theorem decoded_pruned (φ : CNF)
+theorem decoded_pruned (φ : CNF)
     (u v : PhysicalVertex (MarkedGraph.Internal (FormulaIndexedGraph.terminals φ))) :
     DirectedPathNormalization.pruned
       (MarkedGraph.pulled (FormulaIndexedGraph.edge φ) (FormulaIndexedGraph.terminals φ))
