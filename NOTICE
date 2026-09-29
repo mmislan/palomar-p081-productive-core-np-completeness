@@ -1,0 +1,11 @@
+Original research and submission preparation: Michael Mislan, 2026.
+
+The submitted original source is licensed under Apache-2.0; see LICENSE.
+proofs/Complexitylib/ contains a selected module closure from
+SamuelSchlesinger/complexitylib (commit 43d4bb1a30bd93846eab5480bec8a37113586109),
+licensed under Apache-2.0; see proofs/Complexitylib/LICENSE and UPSTREAM.md.
+Its files retain their upstream copyright notices, including contributions
+credited to Samuel Schlesinger and Bolton Bailey.
+Mathlib and its dependencies retain their own notices and licenses.
+Cited mathematical literature is credited in the manuscript and entry metadata;
+its authors' work is not relicensed by this repository.

@@ -1,0 +1,444 @@
+{
+  "repository": "SamuelSchlesinger/complexitylib",
+  "commit": "43d4bb1a30bd93846eab5480bec8a37113586109",
+  "toolchain": "leanprover/lean4:v4.30.0",
+  "mathlib": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "files": [
+    {
+      "path": "Complexitylib/Classes/P/Composition.lean",
+      "git_blob_sha": "a285b2c1134fd441a4876e992fdb2e7208cfc7c0"
+    },
+    {
+      "path": "Complexitylib/Classes/P/Internal/Composition.lean",
+      "git_blob_sha": "60f288cad06210da4916a3e45a5779b1b50b6193"
+    },
+    {
+      "path": "Complexitylib/Asymptotics/PolynomialComposition.lean",
+      "git_blob_sha": "194107f3db43363aa4005b6ef8cd5c36674f81b3"
+    },
+    {
+      "path": "Complexitylib/Classes/P/Internal/NormalForm.lean",
+      "git_blob_sha": "3cbbd343d15fff7165e66fbb48d1d203496b6ee2"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Composition.lean",
+      "git_blob_sha": "042dd90648562654b2e57dea0af3efdf62c96f8e"
+    },
+    {
+      "path": "Complexitylib/Asymptotics.lean",
+      "git_blob_sha": "e5abbfd0deea8fe65c9bae193b8f23e07d72e580"
+    },
+    {
+      "path": "Complexitylib/Classes/P/Defs.lean",
+      "git_blob_sha": "fff0f941c83370838622f1141da76f5bd4de98d6"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Composition/Defs.lean",
+      "git_blob_sha": "3b6ec60407c14ff3fa5aedc5bda7419c9ece0938"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Composition/Internal.lean",
+      "git_blob_sha": "83a2271fc8586d9fd2940e4296e154003663a547"
+    },
+    {
+      "path": "Complexitylib/Classes/Time.lean",
+      "git_blob_sha": "f5290fddee39808dd803ec2d21395fbed833a276"
+    },
+    {
+      "path": "Complexitylib/Classes/Space.lean",
+      "git_blob_sha": "98c598f334d9753832c5b9bfcaad354b3fc28107"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Combinators/RetargetCompute/Defs.lean",
+      "git_blob_sha": "e9597f77485768ad57911ba341cc9c8bca616290"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Lift.lean",
+      "git_blob_sha": "fbc84686cfcdf858d02cba960694770cf2c36810"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Placement/Defs.lean",
+      "git_blob_sha": "2c1ea1242269617b870fbfcd5626c8fb60d2af2c"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Subroutines.lean",
+      "git_blob_sha": "4b2f2786abf7f2586b52c39ab57e360a491f2dfa"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Composition/Internal/FirstPhase.lean",
+      "git_blob_sha": "3d852ad220ed524d3eae215174d6ed21b1eda135"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Composition/Internal/Tail.lean",
+      "git_blob_sha": "1d0b0ee86cdccbbe9edd07b53f871bdceb03bcb9"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/OutputBounds.lean",
+      "git_blob_sha": "7398ae6cf4eda60a819aa654f46a580a1b3ed90a"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine.lean",
+      "git_blob_sha": "39d7662bacfd0ebadb33e1fb1a034fd78364ed27"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Combinators.lean",
+      "git_blob_sha": "f516ee0a4476a83b7dc29639cdecc0c6fa00070b"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Combinators/Internal/Generic.lean",
+      "git_blob_sha": "38fc6894ab5db3caa11697a14be18f66a40a1c14"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Placement/Internal.lean",
+      "git_blob_sha": "d21b15fe861c1248ede922b022ded67eae1315ee"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Internal.lean",
+      "git_blob_sha": "f60c415e6a8f20e4ba0cef5935dbb25b19122e46"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Subroutines/CopyWorkOutput.lean",
+      "git_blob_sha": "44ebd42a21bd7edbb306f1b37ce5d4724e54d8fb"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Combinators/RetargetCompute.lean",
+      "git_blob_sha": "ab935f356a862395988c42da795437eed58afd6e"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Internal/OutputBounds.lean",
+      "git_blob_sha": "fceabfe6e4ff4a053a2de0d02b354be5cf4fb80a"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Subroutines/Internal/CopyWorkOutput.lean",
+      "git_blob_sha": "e04f1d36ddd745ccde29271ac8300a4bdaf5b761"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Combinators/RetargetCompute/Internal.lean",
+      "git_blob_sha": "966f0c0d6fa9bbd1da0f14740c1338daccb515d9"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Hoare/Defs.lean",
+      "git_blob_sha": "f0a704f01231b02821e743aee568b6c79e63c332"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Tape/Encoding.lean",
+      "git_blob_sha": "86668ae1b0d30a0e68ae069d51ef9538bfd96025"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Combinators/Internal/Retarget.lean",
+      "git_blob_sha": "aedb91753143e2af8c5a3d4a1931bd0114f75d03"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Subroutines/Counter.lean",
+      "git_blob_sha": "f60cb3b7e4eb41f9657a57cecf403fb1a7611051"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Subroutines/Internal.lean",
+      "git_blob_sha": "9e8f75d6f8db3a1296db508107bb0f8ae6065b15"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Hoare.lean",
+      "git_blob_sha": "e7ae20c555af13e68bdbb3730d5d9e4ec110a3be"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Combinators/Internal/Seq.lean",
+      "git_blob_sha": "588c31b77c196b6b7146b956d9255c0dd072c9e9"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Combinators/Internal/If.lean",
+      "git_blob_sha": "f4ecd648acdd4e8f860bee84dd0b9d7af4abe8f4"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Combinators/Internal/Complement.lean",
+      "git_blob_sha": "f4c3680c5cfb204b29b1e3dfa329115968675cb9"
+    },
+    {
+      "path": "Complexitylib/Classes/NP.lean",
+      "git_blob_sha": "9e9a69484da52f5ca58a6b308d2bcd8e0307e0d3"
+    },
+    {
+      "path": "Complexitylib/SAT/CookLevin/Assembly.lean",
+      "git_blob_sha": "b43ea39aa7228b3d2e3665f8923999154211bfc8"
+    },
+    {
+      "path": "Complexitylib/SAT/CookLevin/Internal/EmitterActive.lean",
+      "git_blob_sha": "4897a851da0de7147af1fb84ba67362bf8dafce6"
+    },
+    {
+      "path": "Complexitylib/Classes/NP/Reduction.lean",
+      "git_blob_sha": "edc721f5cab30e207b9423e5be22137b06075eee"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Registers/InputLen.lean",
+      "git_blob_sha": "4b42965ce9201aa1fbf3264fb846c38aa9f4c27d"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/SingleTape.lean",
+      "git_blob_sha": "b88cc0d1427b4f1bcef9c2b94c0753ce0703dcf2"
+    },
+    {
+      "path": "Complexitylib/SAT/CookLevin/Internal/EmitterStart.lean",
+      "git_blob_sha": "ad29ca80f9a16662107328b9871e45e67d21b2f4"
+    },
+    {
+      "path": "Complexitylib/SAT/Headline.lean",
+      "git_blob_sha": "de85a4ac43ae328bd231c59ee87cd4fc4e518294"
+    },
+    {
+      "path": "Complexitylib/SAT/CookLevin/Internal/EmitterFamilies.lean",
+      "git_blob_sha": "22551a66a3bbb0b9d5eaa457959d20c15f9e2002"
+    },
+    {
+      "path": "Complexitylib/Classes/P.lean",
+      "git_blob_sha": "06aba803f7c8f05106f7f0f7bfbf529a72304d0b"
+    },
+    {
+      "path": "Complexitylib/Classes/Containments.lean",
+      "git_blob_sha": "17970527566b07b3e1a40fa8f7bba2d09b252296"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Registers/RegisterOps.lean",
+      "git_blob_sha": "ad7300d1dccd0bf36ef58331f01040d8c5f3cafa"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/SingleTape/Internal/Pad.lean",
+      "git_blob_sha": "8ef6211825825f35b1d003243c7bed0b2d5ddc89"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/SingleTape/Internal.lean",
+      "git_blob_sha": "862ff1cd390c2cdba58778366fa9b16c06bc8de9"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/SingleTape/Internal/Sim.lean",
+      "git_blob_sha": "63d9f0519cb63a7567b921ec76ab0abdedf9f7e0"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/SingleTape/Internal/Delta.lean",
+      "git_blob_sha": "2a8528f2c8e33adbeda043dcc78e9a05126398b5"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/SingleTape/Internal/Correctness.lean",
+      "git_blob_sha": "94790f8601091863409b41e9a898a2bde99879fb"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Registers/Probe.lean",
+      "git_blob_sha": "9f2f7255bd74bcaf2a8e40fcdf186d7cf4caa4cd"
+    },
+    {
+      "path": "Complexitylib/SAT/VerifierTM.lean",
+      "git_blob_sha": "2563a5b5aca1e2ee2ed5f7051acdc2f5d3ee413f"
+    },
+    {
+      "path": "Complexitylib/SAT/Internal/GuessVerify.lean",
+      "git_blob_sha": "4d74a5bdc99157068a0224262c31a398023f3e68"
+    },
+    {
+      "path": "Complexitylib/SAT/CookLevin/Internal/EmitterLoop.lean",
+      "git_blob_sha": "e0f71fc758721bb52e4bd20409b4adad993953cf"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Registers/DecReg.lean",
+      "git_blob_sha": "1bacb23d8c3a96d0471b1192d34c4f6a18f0f88b"
+    },
+    {
+      "path": "Complexitylib/SAT/CookLevin.lean",
+      "git_blob_sha": "3d545216e03e00ca140a2903ef8d872c7180c756"
+    },
+    {
+      "path": "Complexitylib/Classes/P/Internal.lean",
+      "git_blob_sha": "db7c6ce51572660950b5279c2a56d96a9dc07457"
+    },
+    {
+      "path": "Complexitylib/Classes/P/NormalForm.lean",
+      "git_blob_sha": "eaac3552dfb4cf02b9750ec723112b40c9c22e80"
+    },
+    {
+      "path": "Complexitylib/Classes/P/PairWithInput.lean",
+      "git_blob_sha": "b167d13cd8a22a28707f1565de9b80b00ecf2ce2"
+    },
+    {
+      "path": "Complexitylib/Classes/P/Preimage.lean",
+      "git_blob_sha": "915fc5cdad64e1fee053e3c86ce3e202241f71ff"
+    },
+    {
+      "path": "Complexitylib/Classes/P/UnaryLength.lean",
+      "git_blob_sha": "1afbde23e857616d90b8d6d81fd7f4e091eb9c09"
+    },
+    {
+      "path": "Complexitylib/Classes/P/FinsetDomain.lean",
+      "git_blob_sha": "2cbf71489da065d3f549d9b9151935e52bce5014"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Subroutines/CopyOutput.lean",
+      "git_blob_sha": "4ae6956469c55db34216d663ed0da101848651af"
+    },
+    {
+      "path": "Complexitylib/Classes/Randomized.lean",
+      "git_blob_sha": "77559ab435f714cc6719bbc5d8e140a8bc6be632"
+    },
+    {
+      "path": "Complexitylib/Classes/L.lean",
+      "git_blob_sha": "38f7da78505bf67fa6f9ea385232fcbf856067ef"
+    },
+    {
+      "path": "Complexitylib/Classes/Exponential.lean",
+      "git_blob_sha": "c49be5da2bd759853f27ca9e98ebdf65974100bb"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Registers/Emit.lean",
+      "git_blob_sha": "11047d006a45bcafbc30013456b7f58bfe74a799"
+    },
+    {
+      "path": "Complexitylib/SAT/Verifier.lean",
+      "git_blob_sha": "fec4d109bcb77d893470e15a5ac7ad6bddbb9c32"
+    },
+    {
+      "path": "Complexitylib/SAT/Language.lean",
+      "git_blob_sha": "8ff90d299eea1ac57fffdfcd9a6fb2ac75e68dda"
+    },
+    {
+      "path": "Complexitylib/Classes/NP/Internal/PairBuildTM.lean",
+      "git_blob_sha": "a0bdde430f5d98167171d86a2a6a1a096a811587"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Subroutines/GuessBounded.lean",
+      "git_blob_sha": "2af64c5821514575a20b7cae16f234a28e33b9e6"
+    },
+    {
+      "path": "Complexitylib/SAT/CookLevin/Internal/Emitter.lean",
+      "git_blob_sha": "88428c992d6562be1a182f99645c387de3b50828"
+    },
+    {
+      "path": "Complexitylib/SAT/Rename.lean",
+      "git_blob_sha": "2284073a5ad3aa3680a49829b9989d41487cb58b"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Combinators/Internal/Union.lean",
+      "git_blob_sha": "d25f28d1495d644e0322458e97804cdc87608eca"
+    },
+    {
+      "path": "Complexitylib/Classes/P/PairWithInput/Internal.lean",
+      "git_blob_sha": "d71804c080c185c42b59f8ef5f3826fbd8aabec5"
+    },
+    {
+      "path": "Complexitylib/Classes/P/Internal/Preimage.lean",
+      "git_blob_sha": "cd09df601acae3508e4e2991d04ca925a1dae8a5"
+    },
+    {
+      "path": "Complexitylib/Classes/P/UnaryLength/Internal.lean",
+      "git_blob_sha": "2c56cc2f38acd9ce70fa26857ce27b5fe6e84b64"
+    },
+    {
+      "path": "Complexitylib/Classes/P/FinsetDomain/Internal.lean",
+      "git_blob_sha": "52d947e69060310e7702fea31e0ac00ff84efbc4"
+    },
+    {
+      "path": "Complexitylib/Encoding/Pairing.lean",
+      "git_blob_sha": "0d60299a389166027bdf16b40b130876cf1b356d"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Subroutines/Internal/CopyOutput.lean",
+      "git_blob_sha": "39c898ffac8664998e28839260cb03d576581ab9"
+    },
+    {
+      "path": "Complexitylib/Classes/Pairing.lean",
+      "git_blob_sha": "88cce7816010e0791369f0326eca91108559baa7"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Registers.lean",
+      "git_blob_sha": "850c5f9a7c279d4de42a616a73c9c92724528145"
+    },
+    {
+      "path": "Complexitylib/SAT/Encoding.lean",
+      "git_blob_sha": "899bc18a229cd4421e5e916a1883fc8dd5acff56"
+    },
+    {
+      "path": "Complexitylib/Classes/NP/Witness.lean",
+      "git_blob_sha": "313c7ece45e39f764bcad2e99e5e313a162cbd13"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Trace.lean",
+      "git_blob_sha": "f9e0bfdd2edc1da67c6f8085542737719f48c6e6"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Registers/MixedRadix.lean",
+      "git_blob_sha": "8d82d375a1ab63e143cf3c6b7e8afc2a5feaa183"
+    },
+    {
+      "path": "Complexitylib/SAT/Semantics.lean",
+      "git_blob_sha": "92417cc2a4314c98be420fcd3342185292154e84"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Composition/PairWithInput.lean",
+      "git_blob_sha": "9475e15a24fefc6b91fd305fb81ce4d37fa8e0cd"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Subroutines/UnaryLength.lean",
+      "git_blob_sha": "543c66580ba5c1212b6ee4e6c1e480f6d317b320"
+    },
+    {
+      "path": "Complexitylib/Mathlib/FinsetPrefixes.lean",
+      "git_blob_sha": "96ca3e9bd60f607b46c4b6760a1e59c8ac3f9a9c"
+    },
+    {
+      "path": "Complexitylib/Encoding/Delimit.lean",
+      "git_blob_sha": "45a5f5424160e1a27e92750ec59b003a68332a07"
+    },
+    {
+      "path": "Complexitylib/Classes/FNP/Defs.lean",
+      "git_blob_sha": "c74147f959bf3fbf49d669a79d61cbe8e5377689"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Trace/Internal.lean",
+      "git_blob_sha": "8fed659ad5785111adf9ad8a4e13deadad03ca99"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Registers/Horner.lean",
+      "git_blob_sha": "ec90be7e19d633a23ea305fa64f84c0acae5d749"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Composition/PairWithInput/Defs.lean",
+      "git_blob_sha": "d3344a7c9dceb3bed974dd228279b4d188f3a744"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Composition/PairWithInput/Internal.lean",
+      "git_blob_sha": "06dc9f9a7838f376e1ae30747105c702ac01959c"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Subroutines/UnaryLength/Defs.lean",
+      "git_blob_sha": "5c81b173760144ab280c6ccc4157796c8b75eadf"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Subroutines/UnaryLength/Internal.lean",
+      "git_blob_sha": "5521a7feede0d9862fa1763337b918928e37a099"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Registers/Arith.lean",
+      "git_blob_sha": "23e2a2581115b3f85a3fc937ba025742c198618c"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Registers/EmitSeq.lean",
+      "git_blob_sha": "8af16247497fc43924a6352da238648255d729e1"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Subroutines/PairEmit.lean",
+      "git_blob_sha": "1c1a90c677757a8926d609856267fb9b54244d30"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Subroutines/PairEmit/Defs.lean",
+      "git_blob_sha": "8a69018bd87c66df9fd0c2b03cfb429c622518f8"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Registers/ForReg.lean",
+      "git_blob_sha": "02e5e5326c53a465566f49b71306b4dcf6c9a9c5"
+    },
+    {
+      "path": "Complexitylib/Models/TuringMachine/Subroutines/PairEmit/Internal.lean",
+      "git_blob_sha": "1a430df2d0bb0c950ee55c5e4659c7f114e0dce2"
+    }
+  ],
+  "adaptation": "Removed module/public visibility markers and prefixed local imports with proofs.; mathematical declarations unchanged.",
+  "additional_adaptations": {
+    "Complexitylib/Classes/P.lean": "Omit unrelated Cobham and Cobham-based pairing re-exports. All mathematical declarations retained."
+  }
+}

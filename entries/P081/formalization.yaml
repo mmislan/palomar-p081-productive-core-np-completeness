@@ -1,0 +1,91 @@
+{
+  "version": "v0.4",
+  "project": {
+    "name": "Unconstrained detection of productive autocatalytic cores is NP-complete",
+    "description": "Kosc, Kuperberg, Rajon and Charlat (PNAS 122, e2421274122, 2025, Section 2.1) left open the complexity of detecting an autocatalytic core without a prescribed target species or allowed-food set. For finite reversible reaction networks with literal nonnegative integer reactant and product matrices, this unconstrained detection problem is proved NP-complete. A core is a nonempty entity/reaction pair, minimal under componentwise inclusion, with a selected reactant and product in every selected reaction and a signed real flow that strictly produces every selected entity. The input uses a canonical binary encoding. NP membership and a total polynomial-time many-one reduction from SAT are formalized using Complexitylib’s multi-tape Turing machines, including the Cook–Levin theorem.",
+    "authors": [
+      "Michael Mislan"
+    ],
+    "responsible_maintainers": [
+      "Michael Mislan"
+    ],
+    "license": "Apache-2.0"
+  },
+  "classification": {
+    "arxiv": [
+      "cs.CC",
+      "q-bio.MN"
+    ],
+    "msc2020": [
+      "68Q17",
+      "92C42"
+    ]
+  },
+  "sources": [
+    {
+      "title": "Unconstrained detection of productive autocatalytic cores is NP-complete",
+      "authors": [
+        "Michael Mislan"
+      ],
+      "type": "paper",
+      "relationship": "formalizes",
+      "note": "Companion manuscript, Theorem 2 (NP-completeness of UPAC), with Definition 1 (sources, admissibility, productivity, cores), Lemma 3 (square witnesses) and the formal appendix (binary encoding and terminal declaration).",
+      "location": "papers/P081/paper.pdf"
+    },
+    {
+      "title": "Thermodynamic consistency of autocatalytic cycles",
+      "authors": [
+        "Thomas Kosc",
+        "Denis Kuperberg",
+        "Etienne Rajon",
+        "Sylvain Charlat"
+      ],
+      "type": "paper",
+      "relationship": "background",
+      "note": "Section 2.1, Definition 3 and Theorem 1 treat PAC-DETECTION with a prescribed target entity and allowed-food set. The final paragraph of Section 2.1 explicitly leaves the unconstrained variant open. Open full text: https://pmc.ncbi.nlm.nih.gov/articles/PMC12067211/ . Preprint: https://doi.org/10.1101/2024.10.11.617739 .",
+      "id": "doi:10.1073/pnas.2421274122",
+      "location": "https://doi.org/10.1073/pnas.2421274122"
+    }
+  ],
+  "status": {
+    "scope": "The selected theorem UnconstrainedPACDetection.complexity_root states, without hypotheses, that BinaryPACVerifier.language is NP-complete under polynomial-time many-one reductions. The language consists of canonical binary encodings of finite reversible sources (literal nonnegative integer left/right matrices) that contain a productive autocatalytic core with signed real flow; malformed or non-canonical encodings are excluded. NP, FP and reductions use reproduced Complexitylib multi-tape Turing-machine definitions. The result concerns stoichiometric structure only, not maximum-RAF detection, kinetics or dynamical realizability.",
+    "sorry_count": 0,
+    "sorry_in_definitions": 0,
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "automation": {
+    "methods": [
+      {
+        "method": "agent",
+        "tool_setup": "AI-assisted source migration, metadata preparation and statement packaging using Codex.",
+        "framework": "Codex",
+        "models": []
+      }
+    ],
+    "notes": "AI-assisted development and submission preparation. Complete historical model identifiers are not available in the preserved records and are not inferred. Current source/statement review is agent-assisted; no independent human mathematical review is asserted."
+  },
+  "review": {
+    "status": "agent-reviewed",
+    "notes": "The selected theorem, literal-source model, computational definitions and correspondence to the cited open problem are described in entries/P081/CLAIM-EVIDENCE.md. The review is agent-assisted."
+  },
+  "fidelity": {
+    "divergences": "The literature question is informal; the entry fixes one precise model: literal integer reactant/product matrices (admissibility uses the literal matrices, not the net matrix), signed real flows on reversible reaction identities, minimality under componentwise inclusion, and a canonical dense binary encoding in which non-canonical strings are rejected. Complexity classes are those of Complexitylib's multi-tape Turing machines, reproduced in the Challenge under their original names. No target species or food set is part of the input, and no thermodynamic or kinetic constraint is imposed."
+  },
+  "alignment": {
+    "namespace": "UnconstrainedPACDetection",
+    "statements": [
+      {
+        "source": "Companion manuscript, Theorem 2",
+        "lean": "UnconstrainedPACDetection.complexity_root",
+        "module": "Registry.P081.Challenge",
+        "status": "proved",
+        "note": "Unconditional theorem Complexity.NPComplete BinaryPACVerifier.language, with canonical binary source encoding and polynomial-time many-one reductions."
+      }
+    ]
+  },
+  "acknowledgements": "The computational model and Cook–Levin development use a selected closure of SamuelSchlesinger/complexitylib (Apache-2.0; authors Samuel Schlesinger and Bolton Bailey), retained under proofs/Complexitylib with its license and upstream record."
+}

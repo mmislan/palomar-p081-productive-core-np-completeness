@@ -1,0 +1,12 @@
+{
+  "challenge_module": "Registry.P081.Challenge",
+  "solution_module": "Registry.P081.Solution",
+  "theorem_names": [
+    "UnconstrainedPACDetection.complexity_root"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

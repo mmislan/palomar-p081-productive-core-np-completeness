@@ -1,0 +1,179 @@
+module
+
+public import proofs.IrrRAFEnumeration.Irreducibility
+
+@[expose] public section
+
+namespace IrrRAFEnumeration
+
+variable {α : Type*} [Fintype α] [DecidableEq α]
+
+/-- A set hits a finite set family when it has nonempty intersection with
+every member. -/
+def Hits (F : Finset (Finset α)) (H : Finset α) : Prop :=
+  ∀ A ∈ F, ¬ Disjoint H A
+
+/-- The blocker of a finite family: all inclusion-minimal hitting sets. -/
+noncomputable def blocker (F : Finset (Finset α)) : Finset (Finset α) := by
+  classical
+  exact Finset.univ.powerset.filter fun H => Minimal (Hits F) H
+
+omit [DecidableEq α] in
+@[simp] theorem mem_blocker {F : Finset (Finset α)} {H : Finset α} :
+    H ∈ blocker F ↔ Minimal (Hits F) H := by
+  classical
+  simp [blocker]
+
+omit [DecidableEq α] in
+/-- Every true set in a finite ground type contains an inclusion-minimal true
+set.  No monotonicity assumption is needed. -/
+theorem exists_minimal_subset (P : Finset α → Prop) {S : Finset α}
+    (hS : P S) : ∃ T, T ⊆ S ∧ Minimal P T := by
+  classical
+  have hfinite : ({T : Finset α | P T} : Set (Finset α)).Finite :=
+    Set.toFinite _
+  obtain ⟨T, hTS, hTmin⟩ := hfinite.exists_le_minimal hS
+  exact ⟨T, hTS, hTmin⟩
+
+omit [Fintype α] [DecidableEq α] in
+theorem hits_mono {F : Finset (Finset α)} {H K : Finset α}
+    (hHK : H ⊆ K) (hH : Hits F H) : Hits F K := by
+  intro A hAF hdisjoint
+  exact hH A hAF (hdisjoint.mono hHK Finset.Subset.rfl)
+
+omit [Fintype α] [DecidableEq α] in
+/-- If every input edge contains `x`, then a minimal hitting set containing
+`x` is forced to be the singleton `{x}`. -/
+theorem minimal_hitter_eq_singleton_of_common_vertex
+    {F : Finset (Finset α)} {T : Finset α} {x : α}
+    (hT : Minimal (Hits F) T) (hxT : x ∈ T)
+    (hCommon : ∀ A ∈ F, x ∈ A) :
+    T = {x} := by
+  classical
+  have hSingletonHits : Hits F {x} := by
+    intro A hAF
+    exact Finset.not_disjoint_iff.mpr ⟨x, by simp, hCommon A hAF⟩
+  have hSingletonT : {x} ⊆ T := Finset.singleton_subset_iff.mpr hxT
+  exact Finset.Subset.antisymm (hT.2 hSingletonHits hSingletonT)
+    hSingletonT
+
+omit [Fintype α] [DecidableEq α] in
+/-- Consequently a displayed family of minimal hitters all containing a
+common input vertex has at most one member.  This rules out a nonterminal
+two-sided pivot whose vertex is universal on both polarities. -/
+theorem minimal_hitters_card_le_one_of_common_vertex
+    {F G : Finset (Finset α)} {x : α}
+    (hMinimal : ∀ T ∈ G, Minimal (Hits F) T)
+    (hCommonF : ∀ A ∈ F, x ∈ A)
+    (hCommonG : ∀ T ∈ G, x ∈ T) :
+    G.card ≤ 1 := by
+  classical
+  have hSub : G ⊆ {{x}} := by
+    intro T hTG
+    have hEq := minimal_hitter_eq_singleton_of_common_vertex
+      (hMinimal T hTG) (hCommonG T hTG) hCommonF
+    simp [hEq]
+  exact (Finset.card_le_card hSub).trans (by simp)
+
+/-- Fundamental finite transversal alternative: a set hits every minimal
+hitting set of `F` exactly when it contains a member of `F`. -/
+theorem hits_blocker_iff_contains_member
+    (F : Finset (Finset α)) (H : Finset α) :
+    Hits (blocker F) H ↔ ∃ A ∈ F, A ⊆ H := by
+  classical
+  constructor
+  · intro hH
+    by_contra hcontains
+    push Not at hcontains
+    have hcomp : Hits F (Finset.univ \ H) := by
+      intro A hAF
+      have hnsub : ¬ A ⊆ H := hcontains A hAF
+      rw [Finset.not_subset] at hnsub
+      obtain ⟨x, hxA, hxH⟩ := hnsub
+      exact Finset.not_disjoint_iff.mpr ⟨x, by simp [hxH], hxA⟩
+    obtain ⟨B, hBcomp, hBmin⟩ := exists_minimal_subset (Hits F) hcomp
+    have hHB : ¬ Disjoint H B := hH B (mem_blocker.mpr hBmin)
+    apply hHB
+    exact Finset.disjoint_left.mpr fun x hxH hxB => by
+      have := hBcomp hxB
+      simp [hxH] at this
+  · rintro ⟨A, hAF, hAH⟩ B hBblock
+    have hBA : ¬ Disjoint B A := (mem_blocker.mp hBblock).1 A hAF
+    obtain ⟨x, hxB, hxA⟩ := Finset.not_disjoint_iff.mp hBA
+    exact Finset.not_disjoint_iff.mpr ⟨x, hAH hxA, hxB⟩
+
+/-- A clutter is a family with no strict containments. -/
+def IsClutter (F : Finset (Finset α)) : Prop :=
+  ∀ A ∈ F, ∀ B ∈ F, A ⊆ B → B ⊆ A
+
+/-- Finite blocker involution on clutters. -/
+theorem blocker_blocker (F : Finset (Finset α)) (hF : IsClutter F) :
+    blocker (blocker F) = F := by
+  classical
+  ext H
+  constructor
+  · intro hH
+    have hHmin : Minimal (Hits (blocker F)) H := mem_blocker.mp hH
+    obtain ⟨A, hAF, hAH⟩ :=
+      (hits_blocker_iff_contains_member F H).mp hHmin.1
+    have hAhits : Hits (blocker F) A :=
+      (hits_blocker_iff_contains_member F A).mpr ⟨A, hAF, Finset.Subset.rfl⟩
+    have hHA : H ⊆ A := hHmin.2 hAhits hAH
+    simpa [Finset.Subset.antisymm hAH hHA] using hAF
+  · intro hHF
+    rw [mem_blocker]
+    refine ⟨(hits_blocker_iff_contains_member F H).mpr
+      ⟨H, hHF, Finset.Subset.rfl⟩, ?_⟩
+    intro K hKhits hKH
+    obtain ⟨A, hAF, hAK⟩ :=
+      (hits_blocker_iff_contains_member F K).mp hKhits
+    exact (hF A hAF H hHF (hAK.trans hKH)).trans hAK
+
+/-- A monotone predicate generated by the members of a finite family. -/
+def ContainsMember (F : Finset (Finset α)) (S : Finset α) : Prop :=
+  ∃ A ∈ F, A ⊆ S
+
+/-- Sharpened completeness criterion.  It is enough to test residuals obtained
+from minimal hitting sets of the known minimal-positive family; the Cartesian
+product of one deletion per known set is redundant. -/
+theorem knownFamily_complete_iff
+    (I G : Finset (Finset α)) (hI : IsClutter I) (hGI : G ⊆ I) :
+    G = I ↔
+      ∀ H, Minimal (Hits G) H →
+        ¬ ContainsMember I (Finset.univ \ H) := by
+  classical
+  constructor
+  · intro hEq H hHmin hresidual
+    obtain ⟨A, hAI, hAcomp⟩ := hresidual
+    have hAG : A ∈ G := by simpa [hEq] using hAI
+    have hHA : ¬ Disjoint H A := hHmin.1 A hAG
+    apply hHA
+    exact Finset.disjoint_left.mpr fun x hxH hxA => by
+      have := hAcomp hxA
+      simp [hxH] at this
+  · intro hresidual
+    apply Finset.Subset.antisymm hGI
+    intro A hAI
+    by_contra hAG
+    have hcompHits : Hits G (Finset.univ \ A) := by
+      intro B hBG
+      have hBI : B ∈ I := hGI hBG
+      have hnsub : ¬ B ⊆ A := by
+        intro hBA
+        have hAB : A ⊆ B := hI B hBI A hAI hBA
+        have hEq : B = A := Finset.Subset.antisymm hBA hAB
+        exact hAG (hEq ▸ hBG)
+      rw [Finset.not_subset] at hnsub
+      obtain ⟨x, hxB, hxA⟩ := hnsub
+      exact Finset.not_disjoint_iff.mpr ⟨x, by simp [hxA], hxB⟩
+    obtain ⟨H, hHcomp, hHmin⟩ :=
+      exists_minimal_subset (Hits G) hcompHits
+    apply hresidual H hHmin
+    exact ⟨A, hAI, by
+      intro x hxA
+      simp only [Finset.mem_sdiff, Finset.mem_univ, true_and]
+      intro hxH
+      have := hHcomp hxH
+      simp [hxA] at this⟩
+
+end IrrRAFEnumeration
